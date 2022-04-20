@@ -1,18 +1,17 @@
 mixin header
   header.header
   - const navList = ['trang chủ', 'giới thiệu','sản phẩm','sản phẩm mới','tin tức','liên hệ'];
-
     section.header-contact
       .wrapper
         p.header-time Open time: 8:00 - 18:00 Monday - Sunday
         .header-function
           a(href="#")
             span
-              +icon('fa-user')
+              +icon('fa-solid','fa-user')
             |  Đăng nhập
           a(href="#")
             span
-              +icon('fa-user-plus')
+              +icon('fa-solid','fa-user-plus')
             |  Đăng ký
     section.header-main
       .wrapper 
@@ -49,19 +48,12 @@ mixin header
     
         ul.header-nav__list
           each i in navList
-            +navLink(i) 
+            +navLink(i,'header-nav__link') 
         .header-nav__function
           ul
             li
-              //- a(href='#').header-nav__link
-              //-   i.fa-solid.
-              +navLink
-                +icon('fa-magnifying-glass')
+              +navLink('','header-nav__link')
+                +icon('fa-solid','fa-magnifying-glass')
             li
-              +navLink
-                +icon('fa-cart-arrow-down')
-
-
-      
-
-
+              +navLink('','header-nav__link')
+                +icon('fa-solid','fa-cart-arrow-down')

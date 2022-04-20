@@ -2,6 +2,7 @@
   1. Use a more-intuitive box-sizing model.
 */
 @import './variables';
+@import './mixins';
 *,
 *::before,
 *::after {
@@ -75,4 +76,7 @@ h6 {
 .wrapper {
   max-width: 112rem;
   margin: 0 auto;
+  @include respond-to('mobile-and-down') {
+    padding-inline: 1rem;
+  }
 }

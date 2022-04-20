@@ -1,6 +1,15 @@
-mixin navLink(data="")
+mixin navLink(data="",className='')
  li
-  a(href='#').header-nav__link=data
+  a(href='#' class= className)=data
     block
-mixin icon(iconName)
-  i.fa-solid(class=iconName)
+
+mixin icon(iconType,iconName)
+  span
+    i(class=iconType)(class=iconName)
+
+mixin footerInfo(heading, listItem)
+  .footer__info
+    p=heading
+    ul
+      each item in listItem
+        li= item

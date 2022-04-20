@@ -1,3 +1,48 @@
 mixin footer
-    footer.footer
-      p This is a footer
+  footer.footer
+    .wrapper
+      .footer__head
+        .footer__social
+          h3 KÊNH THÔNG TIN TỪ CHÚNG TÔI
+          .footer__icon
+            - const footer__social = ['fa-facebook-f', 'fa-twitter', 'fa-youtube', 'fa-vimeo']
+              each item in footer__social
+                +icon('fa-brands',item)
+           
+        .footer__email
+          h3 ĐĂNG KÝ NHẬN EMAIL TỪ CHÚNG TÔI 
+        .footer__form 
+          input(type='text' placeholder='Tìm kiếm')
+          span
+            i.fa-solid.fa-location-arrow
+    
+      .footer__body
+        .footer__contact
+          .footer__logo
+            div.img 
+              img(src='../assets/GreenShop.png' alt='header logo')
+            p Món quà từ thiên nhiên
+          .footer__description
+            p Green shop được thành lập từ 8/2010 được sự tin tưởng của khách hàng trong suốt thời gian hoạt động đến nay cửa hàng ngày một phát triển
+          .footer__socialInfo
+            p
+              span
+                i.fa-solid.fa-mobile
+              | Điện thoại: (+84)66558868
+            p
+              span
+                i.fa-solid.fa-envelope
+              | Email: info@dkt.com.vn
+        - const info = {'Thông tin' : ['Tài khoản của tôi', 'Sản phẩm yêu thích', 'Lịch sử mua hàng', 'Chính sách đổi trả', 'Góp ý khiếu nại'],'Hỗ trợ dịch vụ':['Tài khoản của tôi','Sản phẩm yêu thích','Lịch sử mua hàng','Chính sách đổi trả','Góp ý khiếu nại'],'Chính sách ưu đãi':['Tài khoản của tôi','Sản phẩm yêu thích','Lịch sử mua hàng','Chính sách đổi trả','Góp ý khiếu nại'],'Tin tức':['Tài khoản của tôi','Sản phẩm yêu thích','Lịch sử mua hàng','Chính sách đổi trả','Góp ý khiếu nại']};
+        for listItem, heading in info
+          +footerInfo(heading,listItem)
+      .footer__footer
+        ul.footer__nav
+          - const footer__nav = ['Sitemap', 'Danh mục sản phẩm', 'Hợp tác', 'Thông tin liên hệ', 'Câu hỏi thường gặp']
+            each item in footer__nav
+              +navLink(item)
+        .footer__pay
+          - const footer__pay = ['fa-cc-visa', 'fa-cc-visa', 'fa-cc-visa', 'fa-cc-visa', 'fa-cc-visa']
+          each item in footer__pay
+            +icon('fa-brands',item)
+         

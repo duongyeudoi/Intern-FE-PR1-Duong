@@ -58,3 +58,23 @@ $breakpoints: (
         + "Available breakpoints are: #{map-keys($breakpoints)}.";
   }
 }
+@mixin gridTemplate($column, $row: '', $gap: 0) {
+  display: grid;
+  grid-template-columns: repeat($column, minmax(0, 1fr));
+  gap: $gap;
+  @if ($row != '') {
+    grid-template-rows: repeat($row, minmax(0, 1fr));
+  }
+}
+
+@mixin hoverTransition($color, $backgroundColor: '') {
+  transition: all 0.2s linear;
+  &:hover {
+    color: $color;
+    @if $backgroundColor != '' {
+      background-color: $backgroundColor;
+    }
+
+    cursor: pointer;
+  }
+}
