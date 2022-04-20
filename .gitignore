@@ -54,6 +54,10 @@ typings/
 # Optional eslint cache
 .eslintcache
 
+dist/*.html
+dist/*.css
+dist/*.js
+dist/assets/
 # Microbundle cache
 .rpt2_cache/
 .rts2_cache_cjs/
@@ -83,8 +87,9 @@ typings/
 .nuxt
 
 dist/
-
 css/
+
+
 # Gatsby files
 .cache/
 # Comment in the public line in if your project uses Gatsby and *not* Next.js

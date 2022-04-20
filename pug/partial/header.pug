@@ -1,0 +1,67 @@
+mixin header
+  header.header
+  - const navList = ['trang chủ', 'giới thiệu','sản phẩm','sản phẩm mới','tin tức','liên hệ'];
+
+    section.header-contact
+      .wrapper
+        p.header-time Open time: 8:00 - 18:00 Monday - Sunday
+        .header-function
+          a(href="#")
+            span
+              +icon('fa-user')
+            |  Đăng nhập
+          a(href="#")
+            span
+              +icon('fa-user-plus')
+            |  Đăng ký
+    section.header-main
+      .wrapper 
+        .header-logo
+          .header-logo--primary
+            img(src='../assets/GreenShop.png' alt='header logo')
+            p Món quà từ thiên nhiên
+          
+            
+          .header-logo--secondary
+            img(src='../assets/header-secondary.png' alt='header logo')
+        .header-info 
+          p
+            span
+              i.fa-solid.fa-phone 
+            | Hỗ trợ :  (04) 6674 2332 - (04) 3786 8904
+          .header-info__function
+            .header-info__form
+              form
+                input(type='text' placeholder='Tìm kiếm')
+                button(type='submit')
+                  i.fa-solid.fa-magnifying-glass
+            .header-info__cart
+              p
+                span
+                  i.fa-solid.fa-cart-arrow-down
+                | 0 Sản phẩm 
+    nav.header-nav
+    
+      .wrapper
+        a(href='#').header-nav--toggle  
+          span
+            i.fa-solid.fa-bars
+    
+        ul.header-nav__list
+          each i in navList
+            +navLink(i) 
+        .header-nav__function
+          ul
+            li
+              //- a(href='#').header-nav__link
+              //-   i.fa-solid.
+              +navLink
+                +icon('fa-magnifying-glass')
+            li
+              +navLink
+                +icon('fa-cart-arrow-down')
+
+
+      
+
+
