@@ -1,4 +1,4 @@
-body {
-  background-color: beige;
-  font-family: sans-serif;
-}
+@import './base/global';
+@import './base/variables';
+@import './layouts/header';
+@import './base/mixins';

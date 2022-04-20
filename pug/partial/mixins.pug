@@ -1,0 +1,6 @@
+mixin navLink(data="")
+ li
+  a(href='#').header-nav__link=data
+    block
+mixin icon(iconName)
+  i.fa-solid(class=iconName)
