@@ -1,0 +1,92 @@
+@import '../base/_variables.scss';
+@import '../base/mixins';
+.product {
+  border: 1px solid $light-gray;
+  transition: all 0.5s linear;
+
+  &-img {
+    position: relative;
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+  &-status {
+    @include flex($justify: center, $align: center);
+    position: absolute;
+    width: 4rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: $primary;
+    color: $white;
+    top: 1rem;
+    left: 1rem;
+  }
+
+  &-hover {
+    @include abs-center($direction: both);
+    display: none;
+  }
+
+  &-search {
+    @include hoverTransition($white, $dark);
+    padding: 1rem;
+    border-radius: 50%;
+    background-color: $white;
+    color: $dark;
+  }
+
+  &-buy {
+    @include hoverTransition($white, darken($primary, 5));
+    color: $white;
+    padding: 0.5rem 1.5rem;
+    background-color: $primary;
+    border-radius: 1.5rem;
+    text-transform: uppercase;
+    margin-right: 1rem;
+  }
+
+  &-detail {
+    @include flex($justify: center, $align: center, $direction: column);
+    margin-top: 1rem;
+    p {
+      text-transform: capitalize;
+      padding-bottom: 0.5rem;
+    }
+    span {
+      color: #f1c40f;
+    }
+  }
+  &-rate {
+    display: flex;
+  }
+  &-price {
+    @include flex($justify: center, $align: center, $gap: 1rem);
+    margin-top: 1rem;
+
+    span {
+      color: $dark-lighter;
+    }
+  }
+  &-sale {
+    color: $secondary;
+  }
+  &__discount {
+    text-decoration: line-through;
+    color: $dark-lighter;
+  }
+  &-name {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: $primary;
+    font-family: $primary-font;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: darken($white, 20);
+    backdrop-filter: opacity(60%);
+  }
+  &:hover &-hover {
+    @include flex('flex-start', 'center');
+  }
+}

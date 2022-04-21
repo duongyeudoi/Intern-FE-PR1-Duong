@@ -13,3 +13,56 @@ mixin footerInfo(heading, listItem)
     ul
       each item in listItem
         li= item
+
+mixin productRating(rate)
+  - let start = 0
+  while start < rate
+    span
+      i.fa-solid.fa-star
+    - start++
+    
+mixin ratioImage(img, ratio = '1/1')
+  img.ratio-image(src=img style=`--ratio: $ratio`)
+
+mixin displayProduct({name, status, price, image, type=''})
+  .product(class=type?type:'')
+    .product-img
+ 
+      img(src= image, alt='product image')
+      .product-status= status
+     
+      .product-hover
+        button.product-buy Mua ngay
+        button.product-search
+          i.fa-solid.fa-magnifying-glass
+    .product-detail
+      p.product-name=name
+      .product-rate
+        +productRating(5)
+      .product-price
+        p.product-sale= price
+        p.product-discount 250.000 đ
+
+mixin mainHeader(content)
+  h3.main-heading
+    span=content
+
+mixin horizontalProduct({name,image,price})
+  .horizontal-Product
+    .horizontal-Product-img
+      +ratioImage(image, '1/1')
+    .horizontal-Product-detail
+      p.horizontal-Product-name=name
+      .horizontal-Product-rate
+        +productRating(5)
+      p.horizontal-Product-price=price
+
+mixin displayNews({heading, desc, image})
+  .news
+    .news-img
+      img(src=image alt='news image')
+    p.news-meta Thứ 7, ngày 31 tháng 12, năm 2015
+    h5.news-heading=heading
+    p.news-desc=desc
+    p.news-additional Đọc tiếp
+
