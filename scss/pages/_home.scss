@@ -1,0 +1,130 @@
+@import '../base/variables';
+@import '../base/mixins';
+.main {
+  &-heading {
+    border-bottom: 1px solid #e1e1e1;
+
+    span {
+      font-size: 1.6rem;
+      color: $primary;
+      font-family: $primary-font;
+      font-weight: 700;
+      line-height: 2rem;
+      text-transform: capitalize;
+      position: relative;
+      padding-bottom: 0.5rem;
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 10000;
+        height: 0.3rem;
+        padding: 0.2rem;
+        background-color: $primary;
+        width: 100%;
+        border-radius: 0.25rem;
+      }
+    }
+  }
+  &__feature {
+    padding-block: 2rem;
+    @include gridTemplate(4, 3, 2rem);
+    .big-product {
+      &-1 {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+      }
+      &-2 {
+        grid-column: 3 / span 2;
+        grid-row: 2 / span 2;
+      }
+    }
+  }
+
+  &__banner {
+    width: 100%;
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
+    padding-bottom: 2rem;
+
+    &--small {
+      padding-block: 2rem;
+    }
+  }
+
+  &__detail {
+    @include gridTemplate(4, '', 2rem);
+  }
+  &__popular {
+    .horizontal-Product:first-of-type {
+      margin-top: 2rem;
+    }
+  }
+  &__discount {
+    grid-column: 2 / span 3;
+  }
+  &__productList {
+    @include gridTemplate(3, 2, 2rem);
+
+    padding-top: 2rem;
+    .product-status {
+      background-color: $secondary;
+    }
+  }
+
+  &__newProducts {
+    &--list {
+      @include gridTemplate(4, 2, 2rem);
+      padding-top: 2rem;
+    }
+  }
+  &__news {
+    padding-block: 4rem;
+  }
+  &__newsList {
+    @include gridTemplate(3, '', 2rem);
+    padding-top: 2rem;
+  }
+}
+@include respond-to('tablet') {
+  .main {
+    padding-inline: 2rem;
+
+    &__feature {
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      .big-product {
+        &-1 {
+          grid-column: auto;
+          grid-row: auto;
+        }
+        &-2 {
+          grid-column: auto;
+          grid-row: auto;
+        }
+      }
+    }
+  }
+}
+@include respond-to('mobile-and-down') {
+  @include gridSnap('main__feature');
+  .main {
+    &__detail {
+      display: block;
+    }
+
+    &__discount {
+      @include gridSnap('main__productList');
+
+      grid-column: auto;
+    }
+    &__newProducts {
+      @include gridSnap('main__newProducts--list');
+    }
+    &__news {
+      @include gridSnap('main__newsList');
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+.horizontal-Product {
+  @include flex($justify: flex-start, $align: center, $gap: 2rem);
+  padding: 2rem;
+  border: 1px solid $light-gray;
+  transition: all 0.5s linear;
+  &-img {
+    flex: 1;
+  }
+  &-detail {
+    flex: 2;
+  }
+  &-name {
+    font-size: 1.4rem;
+    font-family: $primary-font;
+    text-transform: capitalize;
+    font-weight: 500;
+    color: $primary;
+  }
+  &-rate {
+    span {
+      color: $rating;
+    }
+  }
+  &-price {
+    color: $secondary;
+    font-weight: 500;
+    padding-top: 0.5rem;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: $light-gray;
+    backdrop-filter: opacity(50%);
+  }
+}

@@ -1,5 +1,40 @@
 extends ../layouts/defaultLayout
+
 block title
   title Homepage
 block main
-  .wrapper
+  include ../data/product.pug
+  include ../data/news.pug
+  .main
+    .main__banner
+      img(src='./assets/banner.png' alt='banner')
+    .wrapper    
+      +mainHeader('sản phẩm nổi bật')
+      .main__feature
+        for product in productList
+          +displayProduct(product)
+      .main__detail
+        .main__popular
+          +mainHeader('Sản phẩm mua nhiều')
+  
+          for i in productList
+            +horizontalProduct(i)
+        .main__discount
+          +mainHeader('Sản phẩm khuyến mại')
+          .main__productList
+            for i in productList
+              +displayProduct(i)
+      
+      .main__banner--small
+        img(src='./assets/banner-11140x217.png' alt='banner')
+      
+      .main__newProducts
+        +mainHeader('Sản phẩm mới')
+        .main__newProducts--list
+          for i in productList
+              +displayProduct(i)
+      .main__news
+        +mainHeader('Tin Tức')
+        .main__newsList
+          for i in news
+              +displayNews(i)

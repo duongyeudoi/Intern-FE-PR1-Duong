@@ -1,0 +1,40 @@
+@import '../base/variables';
+.news {
+  transition: all 0.5s ease-in-out;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  &-img {
+    width: 100%;
+    img {
+      width: 100%;
+      object-fit: cover;
+      aspect-ratio: 2/1;
+    }
+  }
+  &-meta {
+    padding-top: 2rem;
+    font-style: italic;
+    color: $dark-lighter;
+  }
+  &-heading {
+    padding-top: 1rem;
+    color: $primary;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+  &-desc {
+    padding-top: 1rem;
+    font-size: 1.2rem;
+  }
+  &-additional {
+    padding-block: 1rem;
+    color: $primary;
+    font-weight: bold;
+    font-style: italic;
+  }
+  &:hover {
+    background-color: $light-gray;
+    backdrop-filter: opacity(70%);
+    cursor: pointer;
+  }
+}

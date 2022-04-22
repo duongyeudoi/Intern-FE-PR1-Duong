@@ -173,10 +173,7 @@
       line-height: 3.7rem;
     }
 
-    @include respond-to('tablet') {
-      p {
-      }
-    }
+ 
 
     @include respond-to('mobile-and-down') {
       p {
