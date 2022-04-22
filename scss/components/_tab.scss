@@ -1,0 +1,35 @@
+@import '../base/variables';
+@import '../base/mixins';
+.tabs {
+  @include flex($wrap: wrap, $justify: flex-start, $align: flex-start);
+
+  font-family: sans-serif;
+}
+
+.tabs__label {
+  padding: 1rem 1.6rem;
+  margin-block: 2rem;
+  cursor: pointer;
+}
+
+.tabs__radio {
+  display: none;
+}
+
+.tabs__content {
+  order: 1;
+  width: 100%;
+  line-height: 1.5;
+  font-size: 0.9em;
+  display: none;
+}
+
+.tabs__radio:checked + .tabs__label {
+  font-weight: bold;
+  color: $primary;
+  border-bottom: 0.2rem solid $primary;
+}
+
+.tabs__radio:checked + .tabs__label + .tabs__content {
+  display: initial;
+}

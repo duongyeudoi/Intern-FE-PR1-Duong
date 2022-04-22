@@ -79,7 +79,6 @@ $breakpoints: (
     cursor: pointer;
   }
 }
-
 @mixin gridSnap($selector) {
   .#{$selector} {
     display: grid;

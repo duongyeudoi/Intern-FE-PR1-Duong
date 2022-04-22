@@ -1,0 +1,19 @@
+include ../data/product.pug
+
+.tabs
+  input#tab1.tabs__radio(type='radio' name='tabs-example' checked='')
+  label.tabs__label(for='tab1')
+    span
+      i.fa-solid.fa-grip
+  .tabs__content
+    .productPage-item 
+      for i in productList
+        +displayProduct(i)
+  input#tab2.tabs__radio(type='radio' name='tabs-example')
+  label.tabs__label(for='tab2')
+    span
+      i.fa-solid.fa-grip-lines
+  .tabs__content
+    for i in productList
+        +horizontalProduct(i)
+    

@@ -1,32 +1,6 @@
 @import '../base/variables';
 @import '../base/mixins';
 .main {
-  &-heading {
-    border-bottom: 1px solid #e1e1e1;
-
-    span {
-      font-size: 1.6rem;
-      color: $primary;
-      font-family: $primary-font;
-      font-weight: 700;
-      line-height: 2rem;
-      text-transform: capitalize;
-      position: relative;
-      padding-bottom: 0.5rem;
-      &::before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        z-index: 10000;
-        height: 0.3rem;
-        padding: 0.2rem;
-        background-color: $primary;
-        width: 100%;
-        border-radius: 0.25rem;
-      }
-    }
-  }
   &__feature {
     padding-block: 2rem;
     @include gridTemplate(4, 3, 2rem);
@@ -61,6 +35,13 @@
   &__popular {
     .horizontal-Product:first-of-type {
       margin-top: 2rem;
+    }
+    .horizontal-Product {
+      margin-block: 0;
+      &-desc,
+      &-function {
+        display: none;
+      }
     }
   }
   &__discount {

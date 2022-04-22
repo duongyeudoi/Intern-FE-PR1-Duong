@@ -1,6 +1,6 @@
-mixin navLink(data="",className='')
+mixin navLink(data="",className='',link)
  li
-  a(href='#' class= className)=data
+  a(href=link class= className)=data
     block
 
 mixin icon(iconType,iconName)
@@ -44,10 +44,10 @@ mixin displayProduct({name, status, price, image, type=''})
         p.product-discount 250.000 đ
 
 mixin mainHeader(content)
-  h3.main-heading
+  h3.sectionHeading
     span=content
 
-mixin horizontalProduct({name,image,price})
+mixin horizontalProduct({name,image,price,desc})
   .horizontal-Product
     .horizontal-Product-img
       +ratioImage(image, '1/1')
@@ -55,7 +55,14 @@ mixin horizontalProduct({name,image,price})
       p.horizontal-Product-name=name
       .horizontal-Product-rate
         +productRating(5)
+      p.horizontal-Product-desc=desc
       p.horizontal-Product-price=price
+      .horizontal-Product-function
+        button.horizontal-Product-buy Mua ngay
+        button.horizontal-Product-search
+          +icon('fa-solid','fa-magnifying-glass')
+        button.horizontal-Product-favor
+          +icon('fa-solid','fa-heart')
 
 mixin displayNews({heading, desc, image})
   .news
@@ -66,3 +73,11 @@ mixin displayNews({heading, desc, image})
     p.news-desc=desc
     p.news-additional Đọc tiếp
 
+mixin breadCums(heading)
+  p.breadCumbs Home 
+    span=heading
+
+mixin color(color,name)
+  .color-display
+    span.dot(style={background: color})
+    span=name

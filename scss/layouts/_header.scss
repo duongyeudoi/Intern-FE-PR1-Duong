@@ -116,15 +116,41 @@
       }
     }
     &__list {
-      @include flex($justify: flex-start, $align: center);
+      &--pc {
+        @include flex($justify: flex-start, $align: center);
 
-      li {
-        list-style-type: none;
-        align-self: stretch;
+        li {
+          list-style-type: none;
+          align-self: stretch;
 
-        transition: all 0.2s linear;
-        :hover {
-          background-color: darken($primary, 10%);
+          transition: all 0.2s linear;
+          :hover {
+            background-color: darken($primary, 10%);
+          }
+        }
+      }
+      &--mobile {
+        margin: 0 auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 30rem;
+        background-color: $primary;
+        flex-direction: column;
+        padding-inline: 0;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        z-index: 50;
+        align-items: stretch;
+        transition: transform 500ms ease-in-out;
+        transform: translateX(-100%);
+        &-close {
+          width: 2.8rem;
+          height: 2.8rem;
+          color: $light-gray;
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
         }
       }
     }
@@ -141,6 +167,9 @@
     &--toggle {
       @extend .header-nav__link;
       padding-left: 0;
+      :hover {
+        cursor: pointer;
+      }
     }
   }
 }
@@ -191,26 +220,18 @@
           }
         }
       }
+      &__list {
+        &--pc {
+          display: none;
+        }
+      }
     }
   }
 
-  .header-nav__list {
-    margin: 0 auto;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 30rem;
-    background-color: $primary;
-    flex-direction: column;
-    padding-inline: 0;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    z-index: 50;
-    align-items: stretch;
-    transition: transform 500ms ease-in-out;
-    transform: translateX(-100%);
-  }
-  .header-nav__list.show {
+  .nav-toggle:checked ~ .header-nav__list--mobile {
     transform: translateX(0);
   }
+  // .header-nav__list--mobile {
+  //
+  // }
 }
