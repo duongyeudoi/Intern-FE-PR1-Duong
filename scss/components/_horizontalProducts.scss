@@ -4,6 +4,7 @@
 .horizontal-Product {
   @include flex($justify: flex-start, $align: center, $gap: 2rem);
   padding: 2rem;
+  margin-block: 2rem;
   border: 1px solid $light-gray;
   transition: all 0.5s linear;
   &-img {
@@ -28,6 +29,29 @@
     color: $secondary;
     font-weight: 500;
     padding-top: 0.5rem;
+  }
+  &-desc {
+    font-size: 1.4rem;
+    padding-block: 1rem 2rem;
+  }
+  &-price {
+    font-size: 1.4rem;
+  }
+
+  &-buy {
+    padding: 1rem 4rem;
+    font-size: 1.4rem;
+    background-color: $primary;
+    color: $white;
+    border-radius: 2rem;
+    margin-right: 1rem;
+  }
+  &-search,
+  &-favor {
+    padding: 2rem;
+    border-radius: 50%;
+    background-color: $white;
+    margin-inline: 1rem;
   }
   &:hover {
     cursor: pointer;

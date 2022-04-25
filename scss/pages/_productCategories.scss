@@ -1,0 +1,126 @@
+@import '../base/variables';
+@import '../base/mixins';
+.productPage {
+  @include gridTemplate($column: 4, $row: '', $gap: 2rem);
+  &-list {
+    padding-block: 2rem;
+    padding-left: 1.5rem;
+    &--item {
+      @include hoverTransition($primary, '');
+      list-style-type: '\27A3';
+      font-size: $regular-size;
+      padding-block: 0.5rem;
+      padding-left: 1rem;
+      font-weight: 500;
+
+      color: $dark;
+      border-bottom: 1px solid $light-gray;
+    }
+  }
+  &-priceList {
+    @extend .productPage-list;
+
+    &--item {
+      @extend .productPage-list--item;
+    }
+    padding-bottom: 2rem;
+  }
+  &-color {
+    padding-top: 2rem;
+    padding-left: 1.5rem;
+
+    @include flex(
+      $wrap: wrap,
+      $gap: 1rem,
+      $justify: flex-start,
+      $align: flex-start
+    );
+    .color-display {
+      @include flex($gap: 0.5rem, $justify: flex-start, $align: center);
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+
+      .dot {
+        height: 2.5rem;
+        width: 2.5rem;
+
+        border-radius: 50%;
+        display: inline-block;
+      }
+      @include hoverTransition('', $light-gray);
+    }
+  }
+  &-detail {
+    grid-column: 2 /-1;
+  }
+  &-option {
+    @include flex($justify: space-between, $align: center);
+    padding-block: 2rem;
+  }
+  &-view {
+    @include flex($gap: 1rem, $justify: flex-start, $align: flex-start);
+    span {
+      a {
+        color: $primary;
+      }
+    }
+    span {
+      @include hoverTransition($primary);
+    }
+  }
+  &-filter {
+    @include flex($gap: 1rem, $justify: flex-start, $align: center);
+
+    select {
+      padding: 1rem;
+      outline: none;
+    }
+  }
+  &-item {
+    @include gridTemplate($column: 3, $row: 2, $gap: 2rem);
+
+    padding-bottom: 2rem;
+  }
+  &-pagination {
+    padding-block: 2rem;
+    @include flex($gap: 1rem, $justify: flex-end, $align: center);
+
+    li {
+      list-style: none;
+      padding: 1rem;
+      border: 1px solid $light-gray;
+      @include hoverTransition($white, $primary);
+    }
+  }
+}
+@include respond-to('mobile-and-down') {
+  .productPage {
+    display: block;
+    &-list {
+      padding-left: 0.5rem;
+
+      @include flex(
+        $wrap: wrap,
+        $gap: 1rem,
+        $justify: flex-start,
+        $align: flex-start
+      );
+      &--item {
+        list-style-type: none;
+      }
+    }
+    &-banner {
+      padding-block: 2rem;
+    }
+    &-pagination {
+      justify-content: center;
+    }
+    &-tab {
+      .tabs__content:last-of-type,
+      .tabs__label:last-of-type {
+        display: none;
+      }
+    }
+    @include gridSnap('productPage-item');
+  }
+}
