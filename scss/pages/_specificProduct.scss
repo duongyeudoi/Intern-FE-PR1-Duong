@@ -1,0 +1,151 @@
+@import '../base/_mixins.scss';
+@import '../base/variables';
+
+.specific {
+  &__product {
+    @include flex($justify: flex-start, $align: flex-start, $gap: 2rem);
+    margin-top: 5rem;
+  }
+
+  &__img {
+    width: 100%;
+
+    &--big {
+      padding-bottom: 2rem;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    &--small {
+      @include flex($justify: flex-start, $align: flex-start, $gap: 0.5rem);
+      img {
+        @include ratioImage('1/1');
+      }
+    }
+  }
+
+  &__detail {
+    padding: 1rem 0;
+
+    h3 {
+      @include customFont(
+        $size: 1.8rem,
+        $fontFamily: $primary-font,
+        $color: $primary,
+        $weight: 500
+      );
+    }
+  }
+
+  &__rating {
+    padding: 1rem 0;
+    color: $rating;
+  }
+
+  &__price {
+    padding: 1rem 0;
+    border-bottom: 1px solid $dark-lighter;
+
+    &--sale {
+      color: $secondary;
+      font-size: 1.6rem;
+    }
+
+    &--discount {
+      padding-left: 1rem;
+      text-decoration: line-through;
+      color: $dark-lighter;
+      font-size: 1.6rem;
+    }
+  }
+
+  &__desc {
+    padding: 2rem 0;
+    font-size: 1.4rem;
+    border-bottom: 1px solid $dark-lighter;
+  }
+
+  &__quantity {
+    padding: 2rem 0;
+
+    span {
+      font-size: 1.4rem;
+      margin-right: 2rem;
+    }
+
+    button {
+      @include hoverTransition($white, $primary);
+
+      width: 5rem;
+      height: 5rem;
+      border: 1px solid $dark-lighter;
+    }
+
+    .btn-quantity {
+      width: 8rem;
+      margin: 0 0.5rem;
+    }
+  }
+
+  &__function {
+    padding: 1rem 0;
+  }
+
+  &__social {
+    padding: 1rem 0;
+  }
+
+  &__info {
+    padding: 3rem 0;
+
+    p {
+      text-transform: uppercase;
+      font-size: 1.4rem;
+    }
+  }
+
+  &__review {
+    display: none;
+    padding: 2rem 0;
+    .review {
+      font-size: 1.4rem;
+      padding: 2rem 0;
+    }
+  }
+
+  &__another {
+    &--product {
+      @include gridTemplate(4, 1, 2rem);
+      padding: 3rem 0;
+
+      .product-status {
+        display: none;
+      }
+    }
+  }
+}
+
+@include respond-to('mobile-and-down') {
+  .specific {
+    &__product {
+      display: block;
+    }
+
+    &__info {
+      .tabs__content:last-of-type,
+      .tabs__label:last-of-type {
+        display: none;
+      }
+    }
+
+    &__review {
+      display: block;
+    }
+
+    &__another {
+      @include gridSnap('specific__another--product');
+    }
+  }
+}

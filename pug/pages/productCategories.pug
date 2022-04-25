@@ -1,4 +1,5 @@
 extends ../layouts/defaultLayout
+
 block title
   title Products
 block main
@@ -25,7 +26,8 @@ block main
           .productPage-banner
             img(src='./assets/banner-11140x217.png' alt='banner')
           .productPage-tab
-            include ../layouts/tab
+            include ../partial/productCategoriesTab
+              
           
           ul.productPage-pagination
             li Trang trước
