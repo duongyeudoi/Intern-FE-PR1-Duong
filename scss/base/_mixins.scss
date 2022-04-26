@@ -107,6 +107,7 @@ $breakpoints: (
 }
 @mixin ratioImage($ratio: '1/1', $width: '100%') {
   width: $width;
+
   object-fit: cover;
   aspect-ratio: $ratio;
 }

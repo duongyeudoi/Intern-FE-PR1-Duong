@@ -3,8 +3,8 @@ mixin navLink(data="",className='',link)
   a(href=link class= className)=data
     block
 
-mixin icon(iconType,iconName)
-  span
+mixin icon(iconType, iconName, className= '')
+  span(class= className)
     i(class=iconType)(class=iconName)
 
 mixin footerInfo(heading, listItem)
@@ -80,3 +80,32 @@ mixin color(color,name)
   .color-display
     span.dot(style={background: color})
     span=name
+
+mixin smallnews(img, name)
+  .smallnews
+    a.smallnews__imgwrap(href="#!")
+      img.smallnews__img(src=img , alt="")
+    h6.smallnews__name
+      a(href="#!")= name
+
+mixin large-news(img, title)
+  .large-news
+    h3.large-news__title=title
+    .large-news__info
+      +icon('fa', 'fa-calendar', 'large-news__detail')
+      | 20/12/2015
+      +icon('fa-solid', 'fa-clock', 'large-news__detail')
+      | 11:20:00 AM
+      +icon('fa-solid', 'fa-comment', 'large-news__detail')
+      | 0 Bình luận
+    img.large-news__img(src=img, alt="")
+    p.large-news__content Như thể hiện sự thân thiện cũng như sự hiếu khách của gia chủ, phần không gian trước cửa nhà luôn được đầu tư và trang trí khá bắt mắt. Cũng có thể nói đây là bộ mặt của ngôi nhà, là ấn tượng đầu tiên khi một vị khách ghé chơi nhà bạn đấy. Hãy cùng Sài Gòn Hoa tham khảo một vài cách bố trí chậu cây hoa cảnh ngay trước cửa nhà sao cho ấn tượng nhất nhé!
+
+mixin pagination
+  ul.pagination
+    li Trang trước
+    - const number = [1,2,3,4]
+    each i in number
+        li=i
+
+    li Trang cuối
