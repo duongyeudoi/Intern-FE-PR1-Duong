@@ -1,0 +1,15 @@
+.pagination {
+  padding-block: 2rem;
+  @include flex($gap: 1rem, $justify: flex-end, $align: center);
+
+  li {
+    list-style: none;
+    padding: 1rem;
+    border: 1px solid $light-gray;
+    @include hoverTransition($white, $primary);
+  }
+
+  @include respond-to('mobile-and-down') {
+    justify-content: center;
+  }
+}

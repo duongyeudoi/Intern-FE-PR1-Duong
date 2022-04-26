@@ -3,12 +3,15 @@
 @import './layouts/header';
 @import './base/mixins';
 @import './layouts/footer';
+@import './layouts/sidebar';
+@import './pages/newsPage';
 @import './pages/home';
 @import './pages/productCategories';
 @import './components/sectionHeading';
 @import './components/products';
 @import './components/horizontalProducts';
 @import './components/tab';
+@import './components/pagination';
 @import './components/displayNews';
 @import './pages/specificProduct';
 @import './pages/cart';

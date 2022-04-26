@@ -1,0 +1,18 @@
+extends ../layouts/defaultLayout
+include ../layouts/sidebar
+block title
+  title News
+block main
+  include ../data/sidebarData
+  .wrapper
+    +breadCums('Tin tức')
+    .newsPage
+      .newsPage__sidebar
+        +sidebar('news')
+      .newsPage__main
+        each item in news
+          +large-news(item.img, item.title)
+        +pagination
+
+      
+

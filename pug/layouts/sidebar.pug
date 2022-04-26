@@ -1,0 +1,30 @@
+mixin sidebar(type)
+  include ../data/sidebarData
+  - const price = ['200.000 Đ - 400.000 Đ', '400.000 Đ - 600.000 Đ', '600.000 Đ - 800.000 Đ', '800.000 Đ - 1000.000 Đ', '1000.000 Đ - 1200.000 Đ'];
+  - const color = {'xanh cây': '#2ecc71', 'đỏ cam': '#e74c3c', 'tím': '#9b59b6', 'xanh trời': '#3498db', 'vàng': '#f1c40f','hồng': '#fd79a8'}
+  - const category = ['Cây chậu treo (10)', 'Cây có hoa', 'Cây dây leo', 'Cây để bàn', 'Cây may mắn', 'Cây trang trí', 'Cây nội thất'];
+  aside.sidebar     
+    .sidebar-category
+      +mainHeader('Danh mục sản phẩm')
+      ul.sidebar-list
+        for i in category
+          li.sidebar-list--item=i
+      if (type==='general')
+        +mainHeader('Tìm theo giá')
+        ul.sidebar-priceList
+          for i in price
+            li.sidebar-priceList--item=i
+        +mainHeader('Tìm theo màu')
+        ul.sidebar-color
+          for i,n in color
+            +color(i,n)
+      if (type==='news')
+        +mainHeader('Tin tức nổi bật')
+        .sidebar__newslist
+          each item in news
+            +smallnews(item.img, item.title)
+        +mainHeader('Blog Tags')
+        ul.tags.sidebar__tags
+          each item in tags
+            li.tags__tag
+              a.tags__link(href="#!")= item
