@@ -1,0 +1,49 @@
+extends ../layouts/defaultLayout
+block title
+  title SpecificProduct
+block main
+  - const anotherProduct = [{name: 'cây chân chim', price: '250.000đ', image:'./assets/spx2-1.png'}, {name: 'cây cọ nhật', price: '250.000đ', image:'./assets/spx2-2.png'}, {name: 'cây phát lộc', price: '250.000đ', image:'./assets/spx2-3.png'}, {name: 'cây kim ngân', price: '250.000đ', image:'./assets/spx2-3.png'}] 
+  .specific
+    .wrapper
+      +breadCums("Cây dạ lam")
+      .specific__product
+        .specific__img
+          .specific__img--big
+            img(src='./assets/spx2-1.png' alt='Product img')
+          .specific__img--small
+            - const subImg = ['./assets/spx2-2.png', './assets/spx2-3.png', './assets/spx2-4.png', './assets/spx2-5.png', './assets/spx2-6.png']
+            each img in subImg
+              .subImg
+                img(src=img alt='sub img')
+        .specific__detail
+          h3 Cây Dạ Lam
+          .specific__rating
+            +productRating(3)
+          .specific__price
+            span.specific__price--sale 4.099.000 đ
+            span.specific__price--discount 4.099.000 đ
+          p.specific__desc Cây mọc thành bụi thưa, thân vươn thẳng với chiều cao cây trung bình từ 0,8-1,2m. Lá hình trứng, mép lá nguyên, gân lá nổi rõ, phiến rộng khoảng từ 15-20cm. Lá có màu xanh đậm ở mặt trên, quanh gân lá có màu trắng sữa; mặt dưới lá nhạt màu hơn. Lá cây dạ lam mọc cách, cuống lá dài khi rụng để lại các khía màu nâu nhạt.
+          .specific__quantity
+            span Số lượng
+            button.btn -
+            button.btn-quantity 1
+            button.btn +
+          .specific__function
+            button.btn.btn--primary Mua ngay
+            button.btn.btn--circle
+              +icon('fa-solid','fa-magnifying-glass')
+            button.btn.btn--circle
+              +icon('fa-solid','fa-heart')
+          .specific__social
+            img(src='./assets/socialIcon.png' alt='social icon')
+      .specific__info
+        include ../partial/productSpecificTab
+      .specific__review
+        +mainHeader('Khách hàng đánh giá')
+        p.review Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil pariatur iure porro eos blanditiis corporis temporibus dicta illo voluptas, necessitatibus accusamus ad doloremque nam aperiam magnam, aliquid debitis voluptatibus unde!
+
+      .specific__another
+        +mainHeader('Sản phẩm cùng loại')
+        .specific__another--product
+          each product in anotherProduct
+            +displayProduct(product)

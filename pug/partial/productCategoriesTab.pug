@@ -1,0 +1,15 @@
+extends ../layouts/tab
+
+block tabLabel1
+  span
+    i.fa-solid.fa-grip
+block tabLabel2
+  span
+   i.fa-solid.fa-grip-lines
+block tabContent1
+  .productPage-item 
+    for i in productList
+      +displayProduct(i)
+block tabContent2
+  for i in productList
+    +horizontalProduct(i)

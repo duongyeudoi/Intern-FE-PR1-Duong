@@ -76,13 +76,40 @@ h6 {
 .wrapper {
   max-width: 112rem;
   margin: 0 auto;
+  @include respond-to('tablet') {
+    padding-inline: 3rem;
+  }
   @include respond-to('mobile-and-down') {
     padding-inline: 1rem;
   }
 }
-button {
+button,
+.btn {
   border: none;
+  outline: none;
+  background-color: $white;
+
+  &--primary {
+    @include hoverTransition($white, darken($primary, 20%));
+
+    padding: 1rem 4rem;
+    font-size: 1.4rem;
+    background-color: $primary;
+    color: $white;
+    border-radius: 2rem;
+    margin-right: 1rem;
+  }
+
+  &--circle {
+    @include hoverTransition($white, $dark);
+    padding: 1rem 1.25rem;
+    border-radius: 50%;
+    background-color: $white;
+    margin-inline: 1rem;
+    border: 1px solid $dark-lighter;
+  }
 }
+
 .ratio-image {
   width: 100%;
   object-fit: cover;

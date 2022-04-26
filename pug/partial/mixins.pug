@@ -15,16 +15,15 @@ mixin footerInfo(heading, listItem)
         li= item
 
 mixin productRating(rate)
-  - let start = 0
-  while start < rate
-    span
-      i.fa-solid.fa-star
-    - start++
+  - const stars = [...Array(5)].map((_, index) => index >= rate ? 'fa-regular fa-star' : 'fa-solid fa-star')
+    each star in stars
+      span
+        i(class=star)
     
 mixin ratioImage(img, ratio = '1/1')
   img.ratio-image(src=img style=`--ratio: $ratio`)
 
-mixin displayProduct({name, status, price, image, type=''})
+mixin displayProduct({name, status='', price, image, type=''})
   .product(class=type?type:'')
     .product-img
  
@@ -38,7 +37,7 @@ mixin displayProduct({name, status, price, image, type=''})
     .product-detail
       p.product-name=name
       .product-rate
-        +productRating(5)
+        +productRating(4)
       .product-price
         p.product-sale= price
         p.product-discount 250.000 đ
@@ -58,10 +57,10 @@ mixin horizontalProduct({name,image,price,desc})
       p.horizontal-Product-desc=desc
       p.horizontal-Product-price=price
       .horizontal-Product-function
-        button.horizontal-Product-buy Mua ngay
-        button.horizontal-Product-search
+        button.btn.btn--primary Mua ngay
+        button.btn.btn--circle
           +icon('fa-solid','fa-magnifying-glass')
-        button.horizontal-Product-favor
+        button.btn.btn--circle
           +icon('fa-solid','fa-heart')
 
 mixin displayNews({heading, desc, image})
