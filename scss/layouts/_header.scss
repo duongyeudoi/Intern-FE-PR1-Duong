@@ -94,9 +94,16 @@
       }
     }
     &__cart {
-      p {
-        color: $dark;
-        font-weight: 500;
+      a {
+        @include customFont(
+          $size: 1.4rem,
+          $fontFamily: $secondary-font,
+          $weight: 500,
+          $color: $dark-lighter
+        );
+        @include hoverTransition($primary);
+        text-decoration: none;
+
         .fa-cart-arrow-down:before {
           font-size: 1.8rem;
           margin-right: 1rem;
@@ -174,7 +181,7 @@
   }
 }
 
-@include respond-to('tablet') {
+@include respond-to('tablet-and-down') {
   .header {
     &-main {
       .wrapper {

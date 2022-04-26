@@ -36,7 +36,7 @@ $breakpoints: (
   'tablet-and-up': (
     min-width: 768px,
   ),
-  'tablet': (
+  'tablet-and-down': (
     max-width: 1023.98px,
   ),
   'desktop': (
@@ -105,13 +105,18 @@ $breakpoints: (
     scroll-snap-align: start;
   }
 }
-@mixin ratioImage($ratio: '1/1') {
-  width: 100%;
+@mixin ratioImage($ratio: '1/1', $width: '100%') {
+  width: $width;
   object-fit: cover;
   aspect-ratio: $ratio;
 }
 
-@mixin customFont($size: '1.3rem', $fontFamily, $color, $weight: 500) {
+@mixin customFont(
+  $size: '1.3rem',
+  $fontFamily,
+  $color: $primary,
+  $weight: 500
+) {
   font-size: $size;
   font-family: $fontFamily;
   font-weight: $weight;

@@ -1,0 +1,63 @@
+extends ../layouts/defaultLayout
+
+block title
+  title Cart
+block main
+  - cartHeading = ['HÌNH ẢNH', 'TÊN SẢN PHẨM', 'ĐƠN GIÁ', 'SỐ LƯỢNG', 'THÀNH PHẦN', 'XOÁ']
+  .cart
+    .wrapper
+      +breadCums('Giỏ hàng')
+      h1.cart__title giỏ hàng
+      table.cart__table
+        tbody.cart__body
+          tr.cart__tr.cart__tr--heading
+            each item in cartHeading
+              th.cart__th #{item}
+          each item in [1, 2, 3]
+            tr.cart__tr.cart__tr--element
+              td.cart__images.cart__td.cart__td--images
+                img.cart__image(src="./assets/spx2-1.png", alt="")
+              td.cart__name.cart__td
+                a.cart__link(href="") CÂY VĂN PHÒNG
+              td.cart__price.cart__td
+                | 270.000
+                span.cart__unit đ
+              td.cart__number.cart__td
+                input.cart__input.form__input(type="text", value="1")
+              td.cart__total.cart__td
+                | 270.000
+                span.cart__unit đ
+              td.cart__delete.cart__td
+                a.cart__link
+                  i.cart__icon.fa.fa-trash
+      .cart__mobile        
+          p TỔNG TIỀN (CHƯA THUẾ): 270.000đ
+          p THUẾ (VAT 10%): 27.000đ
+          P TỔNG PHẢI THANH TOÁN: 297.000đ
+      .cart__buttons.cart__function
+        .cart__button
+          button.btn.btn--outline MUA HÀNG
+        .cart__button
+          button.btn.btn--primary TIẾP TỤC MUA
+      .cart__pay-wrap
+        table.cart__pay
+          tr.cart__tr
+            td.cart__td.cart__td--pay.cart__heading TỔNG TIỀN ( CHƯA THUẾ )
+            td.cart__td.cart__td--pay.cart__paynumber
+              | 270.000
+              span.cart__unit đ
+          tr.cart__tr
+            td.cart__td.cart__td--pay.cart__heading THUẾ ( VAT 10% )
+            td.cart__td.cart__td--pay.cart__paynumber
+              | 27.000
+              span.cart__unit đ
+          tr.cart__tr
+            td.cart__td.cart__td--pay.cart__td--total.cart__heading TỔNG PHẢI THANH TOÁN
+            td.cart__td.cart__td--pay.cart__td--total.cart__paynumber
+              | 297.000
+              span.cart__unit đ
+      
+        
+      .cart__buttons.cart__buy
+        .cart__button
+          button.btn.btn--primary THANH TOÁN
