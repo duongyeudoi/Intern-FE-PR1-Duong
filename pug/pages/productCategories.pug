@@ -1,38 +1,16 @@
 extends ../layouts/defaultLayout
-
+include ../layouts/sidebar
 block title
   title Products
 block main
-  - const price = ['200.000 Đ - 400.000 Đ', '400.000 Đ - 600.000 Đ', '600.000 Đ - 800.000 Đ', '800.000 Đ - 1000.000 Đ', '1000.000 Đ - 1200.000 Đ'];
-  - const color = {'xanh cây': '#2ecc71', 'đỏ cam': '#e74c3c', 'tím': '#9b59b6', 'xanh trời': '#3498db', 'vàng': '#f1c40f','hồng': '#fd79a8'}
-  - const category = ['Cây chậu treo (10)', 'Cây có hoa', 'Cây dây leo', 'Cây để bàn', 'Cây may mắn', 'Cây trang trí', 'Cây nội thất'];
+ 
   .wrapper
       +breadCums('Danh mục sản phẩm')
-      .productPage
-        .productPage-category
-          +mainHeader('Danh mục sản phẩm')
-          ul.productPage-list
-            for i in category
-              li.productPage-list--item=i
-          +mainHeader('Tìm theo giá')
-          ul.productPage-priceList
-            for i in price
-              li.productPage-priceList--item=i
-          +mainHeader('Tìm theo màu')
-          ul.productPage-color
-            for i,n in color
-              +color(i,n)
+      .productPage       
+        +sidebar('general') 
         .productPage-detail
           .productPage-banner
             img(src='./assets/banner-11140x217.png' alt='banner')
           .productPage-tab
-            include ../partial/productCategoriesTab
-              
-          
-          ul.productPage-pagination
-            li Trang trước
-            - const number = [1,2,3,4]
-            each i in number
-                li=i
-
-            li Trang cuối
+            include ../partial/productCategoriesTab        
+          +pagination

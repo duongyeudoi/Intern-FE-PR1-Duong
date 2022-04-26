@@ -1,0 +1,17 @@
+@import '../base/_mixins.scss';
+@import '../base/_variables.scss';
+
+.newsPage {
+  @include gridTemplate($column: 4, $row: '', $gap: 2rem);
+
+  &__main {
+    grid-column: 2 /-1;
+  }
+  @include respond-to('mobile-and-down') {
+    display: block;
+
+    &__sidebar {
+      padding-bottom: 2rem;
+    }
+  }
+}

@@ -1,7 +1,6 @@
-@import '../base/variables';
 @import '../base/mixins';
-.productPage {
-  @include gridTemplate($column: 4, $row: '', $gap: 2rem);
+@import '../base/variables';
+.sidebar {
   &-list {
     padding-block: 2rem;
     padding-left: 1.5rem;
@@ -50,40 +49,50 @@
       @include hoverTransition('', $light-gray);
     }
   }
-  &-detail {
-    grid-column: 2 /-1;
-  }
-  &-option {
-    @include flex($justify: space-between, $align: center);
-    padding-block: 2rem;
-  }
-  &-view {
-    @include flex($gap: 1rem, $justify: flex-start, $align: flex-start);
-    span {
+
+  .tags {
+    @include flex(
+      $wrap: wrap,
+      $gap: 1rem,
+      $justify: flex-start,
+      $align: flex-start
+    );
+    padding-left: 0;
+    padding-top: 1rem;
+
+    &__tag {
+      @include hoverTransition($white, $primary);
+      list-style-type: none;
+      border: 1px solid $dark-lighter;
+      padding: 1rem 1.25rem;
       a {
-        color: $primary;
+        @include customFont(
+          $size: 1.3rem,
+          $fontFamily: $secondary-font,
+          $color: $dark-lighter
+        );
+        text-decoration: none;
+
+        @include hoverTransition($white, '');
       }
     }
-    span {
-      @include hoverTransition($primary);
-    }
-  }
-  &-filter {
-    @include flex($gap: 1rem, $justify: flex-start, $align: center);
-
-    select {
-      padding: 1rem;
-      outline: none;
-    }
-  }
-  &-item {
-    @include gridTemplate($column: 3, $row: 2, $gap: 2rem);
-
-    padding-bottom: 2rem;
   }
 }
+
+@include respond-to('tablet-and-down') {
+  .sidebar {
+    .tags {
+      gap: 0.5rem;
+
+      &__tag {
+        padding: 0.5rem 0.75rem;
+      }
+    }
+  }
+}
+
 @include respond-to('mobile-and-down') {
-  .productPage {
+  .sidebar {
     display: block;
     &-list {
       padding-left: 0.5rem;
@@ -98,16 +107,5 @@
         list-style-type: none;
       }
     }
-    &-banner {
-      padding-block: 2rem;
-    }
-
-    &-tab {
-      .tabs__content:last-of-type,
-      .tabs__label:last-of-type {
-        display: none;
-      }
-    }
-    @include gridSnap('productPage-item');
   }
 }
