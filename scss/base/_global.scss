@@ -76,7 +76,7 @@ h6 {
 .wrapper {
   max-width: 112rem;
   margin: 0 auto;
-  @include respond-to('tablet') {
+  @include respond-to('tablet-and-down') {
     padding-inline: 3rem;
   }
   @include respond-to('mobile-and-down') {
@@ -97,7 +97,16 @@ button,
     background-color: $primary;
     color: $white;
     border-radius: 2rem;
-    margin-right: 1rem;
+  }
+  &--outline {
+    @include hoverTransition($white, $primary);
+
+    padding: 1rem 4rem;
+    font-size: 1.4rem;
+    background-color: $white;
+    color: $primary;
+    border-radius: 2rem;
+    border: 1px solid $primary;
   }
 
   &--circle {

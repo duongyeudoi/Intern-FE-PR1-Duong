@@ -35,7 +35,7 @@ mixin header
                 button(type='submit')
                   i.fa-solid.fa-magnifying-glass
             .header-info__cart
-              p
+              a(href='./cartPage.html')
                 span
                   i.fa-solid.fa-cart-arrow-down
                 | 0 Sản phẩm 
@@ -64,5 +64,5 @@ mixin header
               +navLink('','header-nav__link')
                 +icon('fa-solid','fa-magnifying-glass')
             li
-              +navLink('','header-nav__link')
+              +navLink('','header-nav__link','./cartPage.html')
                 +icon('fa-solid','fa-cart-arrow-down')

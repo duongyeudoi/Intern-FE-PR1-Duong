@@ -1,0 +1,210 @@
+@import '../base/mixins';
+@import '../base/variables';
+.cart {
+  &__title {
+    @include customFont(
+      $size: 1.8rem,
+      $fontFamily: $primary-font,
+      $color: $primary
+    );
+    text-transform: uppercase;
+  }
+
+  &__table {
+    margin-top: 2rem;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  &__td,
+  &__th {
+    border: 1px solid $dark-lighter;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  &__th {
+    padding: 1rem 2rem;
+    background-color: $primary;
+    color: $white;
+    font-family: $primary-font;
+    font-weight: 500;
+    font-size: 1.4rem;
+  }
+
+  &__images {
+    @include flex($justify: center, $align: center);
+  }
+
+  &__image {
+    display: block;
+    @include ratioImage('1/1', $width: 15rem);
+  }
+
+  &__mobile {
+    display: none;
+
+    p {
+      @include customFont(
+        $size: 1.8rem,
+        $fontFamily: $primary-font,
+        $weight: 500,
+        $color: $primary-darker
+      );
+    }
+  }
+
+  &__link {
+    @include customFont(
+      $size: 1.4rem,
+      $fontFamily: $primary-font,
+      $color: $primary
+    );
+    text-decoration: none;
+  }
+  &__price {
+    @include customFont(
+      $size: 1.4rem,
+      $fontFamily: $secondary-font,
+      $color: $dark
+    );
+  }
+
+  &__input {
+    @include customFont(
+      $size: 1.4rem,
+      $fontFamily: $secondary-font,
+      $color: $dark
+    );
+    text-align: center;
+    width: 3rem;
+    height: 3rem;
+    padding: 0.5rem;
+  }
+
+  &__total {
+    @include customFont(
+      $size: 1.4rem,
+      $fontFamily: $secondary-font,
+      $color: $dark
+    );
+  }
+
+  &__icon {
+    @include hoverTransition($dark);
+  }
+
+  &__buttons {
+    @include flex($justify: flex-end, $align: center, $gap: 2rem);
+    margin: 2rem 0;
+  }
+
+  &__pay-wrap {
+    @include flex($justify: flex-end, $align: center);
+  }
+
+  &__pay {
+    margin-top: 2rem;
+    border-collapse: collapse;
+    width: 40%;
+
+    & td {
+      text-align: left;
+      @include customFont(
+        $size: 1.3rem,
+        $fontFamily: $secondary-font,
+        $color: $primary,
+        $weight: 600
+      );
+    }
+
+    & tr {
+      &:last-of-type {
+        background-color: $primary;
+
+        td {
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+@include respond-to('mobile-and-down') {
+  .cart {
+    &__table,
+    &__body,
+    &__tr,
+    &__th,
+    &__td {
+      display: block;
+      text-align: left;
+    }
+
+    &__tr {
+      &--heading {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      &:last-child {
+        .cart__delete {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &__td {
+      width: 100%;
+      position: relative;
+      padding-left: 50%;
+      padding-block: 1rem;
+
+      &::before {
+        position: absolute;
+        width: 50%;
+        left: 2rem;
+        @include customFont(
+          $size: 1.3rem,
+          $fontFamily: $secondary-font,
+          $color: $primary,
+          $weight: 600
+        );
+      }
+      &:nth-of-type(2)::before {
+        content: 'Tên sản phẩm:';
+      }
+      &:nth-of-type(3)::before {
+        content: 'Đơn giá:';
+      }
+      &:nth-of-type(4)::before {
+        content: 'Số lượng:';
+      }
+      &:nth-of-type(5)::before {
+        content: 'Thành tiền:';
+      }
+      &:nth-of-type(6)::before {
+        content: 'Xóa:';
+      }
+    }
+
+    &__images {
+      @include flex($justify: center, $align: center);
+      padding: 1rem 0;
+
+      background-color: $primary;
+    }
+
+    &__mobile {
+      @include flex($justify: center, $align: start, $direction: column);
+      padding: 2rem 0;
+    }
+    &__pay-wrap {
+      display: none;
+    }
+
+    &__buy {
+      display: none;
+    }
+  }
+}
