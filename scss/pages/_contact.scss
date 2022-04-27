@@ -1,0 +1,56 @@
+.contact {
+  &__map {
+    overflow-x: hidden;
+    margin: 5rem 0;
+  }
+
+  &__iframe {
+    height: 50vh;
+    width: 100%;
+    @include respond-to('mobile-and-down') {
+      height: 30vh;
+    }
+  }
+
+  &__title {
+    @include customFont(
+      $size: 1.6rem,
+      $fontFamily: $secondary-font,
+      $color: $primary,
+      $weight: 600
+    );
+  }
+
+  &__textarea {
+    width: 90%;
+    padding: 1rem;
+    outline: none;
+    @include respond-to('mobile-and-down') {
+      width: 100%;
+    }
+  }
+
+  &__button {
+    margin: 2rem 0;
+  }
+
+  &__text {
+    @include customFont(
+      $size: 1.4rem,
+      $fontFamily: $secondary-font,
+      $color: $dark
+    );
+    padding: 0.5rem 0;
+
+    span {
+      color: $primary;
+      margin-right: 1rem;
+    }
+  }
+
+  &__info {
+    @include respond-to('mobile-and-down') {
+      display: none;
+    }
+  }
+}
