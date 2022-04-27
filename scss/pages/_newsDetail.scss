@@ -1,0 +1,105 @@
+.new-detail {
+  @include gridTemplate($column: 4, $row: '', $gap: 2rem);
+
+  &__info {
+    grid-column: 2 /-1;
+  }
+  &__intro {
+    .large-news {
+      padding: 0;
+
+      &:hover {
+        background-color: initial;
+        cursor: initial;
+      }
+
+      &__content {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &__text {
+    @include customFont(
+      $size: 1.3rem,
+      $fontFamily: $secondary-font,
+      $color: $dark
+    );
+    padding-block: 1rem;
+  }
+
+  &__image {
+    @include ratioImage($ratio: 2/1, $width: 100%);
+  }
+
+  &__heading {
+    @include customFont(
+      $size: 1.6rem,
+      $fontFamily: $secondary-font,
+      $color: $dark
+    );
+    padding: 2rem 0;
+  }
+  &__reply {
+    padding-left: 13rem;
+  }
+
+  &__form {
+    .row {
+      @include gridTemplate($column: 12, $row: '', $gap: 2rem);
+      grid-template-rows: minmax(0, 1fr);
+      margin-top: 2rem;
+      row-gap: 0.5rem;
+    }
+    .form__input {
+      &--name {
+        grid-column: 1 / span 4;
+      }
+
+      &--email {
+        grid-column: 5 / span 4;
+      }
+
+      &--phone {
+        grid-column: 9 / span 4;
+      }
+
+      &--textarea {
+        grid-column: 1 / span 12;
+        padding: 1rem;
+      }
+    }
+  }
+  &__button {
+    @include flex($justify: flex-end, $align: center);
+    margin-top: 1.5rem;
+  }
+}
+
+@include respond-to('mobile-and-down') {
+  .new-detail {
+    display: block;
+
+    &__info {
+      margin-top: 2rem;
+    }
+
+    &__reply {
+      padding-left: 0;
+    }
+
+    &__form {
+      .row {
+        row-gap: 2rem;
+      }
+
+      .form__input {
+        &--name,
+        &--email,
+        &--phone {
+          grid-column: 1 / span 12;
+        }
+      }
+    }
+  }
+}
