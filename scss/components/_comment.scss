@@ -1,0 +1,61 @@
+.comment {
+  @include flex($justify: flex-start, $align: center, $gap: 2rem);
+  position: relative;
+  border-bottom: 2px solid $dark-lighter;
+  padding-block: 1rem;
+
+  &__element {
+    &--img {
+      padding: 2rem;
+
+      img {
+        @include ratioImage($ratio: 1/1, $width: 12rem);
+        border-radius: 50%;
+      }
+
+      @include respond-to('mobile-and-down') {
+        padding: 0;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    &--detail {
+      h6 {
+        @include customFont(
+          $size: 1.3rem,
+          $fontFamily: $secondary-font,
+          $color: $dark,
+          $weight: 600
+        );
+        padding-bottom: 1rem;
+      }
+
+      p {
+        @include customFont(
+          $size: 1.3rem,
+          $fontFamily: $secondary-font,
+          $color: $dark-lighter
+        );
+        padding-bottom: 1rem;
+
+        &:last-of-type {
+          font-style: italic;
+        }
+      }
+    }
+
+    &--absolute {
+      @include customFont(
+        $size: 1.3rem,
+        $fontFamily: $secondary-font,
+        $color: $dark-lighter
+      );
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+    }
+  }
+}
