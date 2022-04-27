@@ -2,7 +2,7 @@
 @import '../base/mixins';
 .main {
   &__feature {
-    padding-block: 2rem;
+    padding: 2rem 0;
     @include gridTemplate(4, 3, 2rem);
     .big-product {
       &-1 {
@@ -25,7 +25,7 @@
     padding-bottom: 2rem;
 
     &--small {
-      padding-block: 2rem;
+      padding: 2rem 0;
     }
   }
 
@@ -37,7 +37,8 @@
       margin-top: 2rem;
     }
     .horizontal-Product {
-      margin-block: 0;
+      margin-top: 0;
+      margin-bottom: 0;
       &-desc,
       &-function {
         display: none;
@@ -63,7 +64,7 @@
     }
   }
   &__news {
-    padding-block: 4rem;
+    padding: 4rem 0;
   }
   &__newsList {
     @include gridTemplate(3, '', 2rem);
@@ -72,7 +73,7 @@
 }
 @include respond-to('tablet-and-down') {
   .main {
-    padding-inline: 2rem;
+    padding: 0 2rem;
 
     &__feature {
       grid-template-rows: repeat(2, minmax(0, 1fr));
