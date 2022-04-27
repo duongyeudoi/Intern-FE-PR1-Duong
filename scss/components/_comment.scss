@@ -2,7 +2,7 @@
   @include flex($justify: flex-start, $align: center, $gap: 2rem);
   position: relative;
   border-bottom: 2px solid $dark-lighter;
-  padding-block: 1rem;
+  padding: 1rem 0;
 
   &__element {
     &--img {

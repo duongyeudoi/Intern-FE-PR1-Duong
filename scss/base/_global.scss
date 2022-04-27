@@ -77,10 +77,10 @@ h6 {
   max-width: 112rem;
   margin: 0 auto;
   @include respond-to('tablet-and-down') {
-    padding-inline: 3rem;
+    padding: 0 3rem;
   }
   @include respond-to('mobile-and-down') {
-    padding-inline: 1rem;
+    padding: 0 1rem;
   }
 }
 button,
@@ -115,7 +115,7 @@ button,
     padding: 1rem 1.25rem;
     border-radius: 50%;
     background-color: $white;
-    margin-inline: 1rem;
+    margin: 0 1rem;
     border: 1px solid $dark-lighter;
   }
 }
@@ -145,7 +145,7 @@ button,
       $color: $dark
     );
     display: block;
-    padding-block: 1rem;
+    padding: 1rem 0;
 
     &--checkbox {
       display: inline;

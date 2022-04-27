@@ -2,13 +2,13 @@
 @import '../base/variables';
 .sidebar {
   &-list {
-    padding-block: 2rem;
+    padding: 2rem 0;
     padding-left: 1.5rem;
     &--item {
       @include hoverTransition($primary, '');
       list-style-type: '\27A3';
       font-size: $regular-size;
-      padding-block: 0.5rem;
+      padding: 0.5rem 0;
       padding-left: 1rem;
       font-weight: 500;
 

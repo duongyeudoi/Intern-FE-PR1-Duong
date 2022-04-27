@@ -19,7 +19,7 @@
 
     @include respond-to('tablet-and-down') {
       @include gridTemplate($column: 4, $row: 2, $gap: 4rem);
-      margin-inline: 4rem;
+      margin: 0 2rem;
 
       text-align: center;
     }
@@ -62,7 +62,7 @@
     }
 
     @include respond-to('mobile-and-down') {
-      padding-block: 2rem;
+      padding: 2rem 0;
     }
   }
 
@@ -112,7 +112,7 @@
 
     @include respond-to('tablet-and-down') {
       @include gridTemplate($column: 4, $gap: 4rem, $row: 2);
-      margin-inline: 4rem;
+      margin: 0 4rem;
     }
 
     @include respond-to('mobile-and-down') {
@@ -123,7 +123,7 @@
   &__contact {
     grid-column: 1 / span 2;
     p {
-      margin-block: 2rem;
+      margin: 2rem 0;
       line-height: 2.3rem;
       font-size: 1.3rem;
       span {
@@ -161,7 +161,7 @@
       line-height: 2rem;
       font-size: 1.6rem;
       text-transform: uppercase;
-      padding-block: 2rem;
+      padding: 2rem 0;
     }
     ul {
       padding-left: 1rem;
@@ -182,10 +182,10 @@
 
   &__footer {
     @include flex($justify: space-between, $align: center);
-    padding-block: 2rem;
+    padding: 2rem 0;
 
     @include respond-to('tablet-and-down') {
-      padding-inline: 5rem;
+      padding: 0 5rem;
     }
 
     @include respond-to('mobile-and-down') {
@@ -204,7 +204,7 @@
       font-size: $regular-size;
       text-decoration: none;
       line-height: 2rem;
-      padding-inline-end: 2rem;
+      padding-right: 2rem;
       color: $light-gray;
       font-weight: 300;
     }
@@ -214,7 +214,7 @@
     span {
       @include hoverTransition($primary);
 
-      padding-inline: 0.5rem;
+      padding: 0 0.5rem;
     }
   }
 
@@ -227,11 +227,11 @@
   &__description {
     @include respond-to('tablet-and-down') {
       grid-column: 1 / span 2;
-      padding-inline: 5rem;
+      padding: 0 5rem;
     }
 
     @include respond-to('mobile-and-down') {
-      padding-inline: 1rem;
+      padding: 0 1rem;
     }
   }
 }
