@@ -121,3 +121,7 @@ mixin comment
     .comment__element.comment__element--absolute
       p.comment__reply
         a.comment__link(href="") Trả lời
+
+mixin formInput(content, name, type = 'text')
+  label.form__label(for = name)= content
+  input.form__input(type= type id = name)

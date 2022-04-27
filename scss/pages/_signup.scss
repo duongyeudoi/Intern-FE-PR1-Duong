@@ -1,0 +1,31 @@
+.signup {
+  &__title {
+    @include customFont(
+      $size: 1.6rem,
+      $fontFamily: $secondary-font,
+      $color: $primary,
+      $weight: 600
+    );
+  }
+
+  .grid {
+    margin-block: 2rem;
+    gap: 2rem;
+
+    .form {
+      &__label::after {
+        content: '*';
+        color: $secondary;
+        padding-left: 0.5rem;
+      }
+    }
+  }
+
+  &__block {
+    margin-block: 2rem;
+  }
+
+  &__buttons {
+    @include flex($justify: flex-start, $align: center, $gap: 2rem);
+  }
+}
