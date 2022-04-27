@@ -10,10 +10,8 @@ block main
           .signin__element
             h5.signin__title THÔNG TIN CÁ NHÂN
             form.signin__form(action="")
-              label.form__label(for="email") Email của bạn
-              input.form__input#email(type="text")
-              label.form__label(for="password") Mật khẩu
-              input.form__input#password(type="password")
+              +formInput('Email', 'email', "email")
+              +formInput('Mật khẩu', 'password', "password")
               .signin__remember
                 input.form__input--checkbox#form__input--checkbox(type='checkbox')
                 label.signin__label.form__label.form__label--checkbox(for='form__input--checkbox') Ghi nhớ tài khoản
