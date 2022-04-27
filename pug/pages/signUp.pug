@@ -1,0 +1,35 @@
+extends ../layouts/defaultLayout
+block title
+  title Đăng ký
+block main
+  .signup
+    .wrapper
+      +breadCums('Đăng ký')
+      form.signup__form(action="")
+        .signup__block
+          h5.signup__title THÔNG TIN CÁ NHÂN
+          .grid
+            .col-6
+              +formInput('Họ và tên', 'name')
+            .col-6
+              +formInput('Số điện thoại', 'phone')
+            .col-6
+              +formInput('Địa chỉ mail', 'mail')
+            .col-6
+              +formInput('Website của bạn', 'website')
+            .col-12
+              input.form__input--checkbox#form__input--checkbox(type='checkbox')
+              label.form__label.form__label--checkbox(for='form__input--checkbox') Đăng ký nhận thông tin qua email
+              
+        .signup__block
+          h5.signup__title THÔNG TIN TÀI KHOẢN
+          .grid
+            .col-6
+              +formInput('Mật khẩu', 'password', 'password')
+            .col-6
+              +formInput('Nhập lại mật khẩu', 'repassword', 'password')
+        .signup__block.signup__buttons
+          .signup__button
+            button.btn.btn--outline quay lại
+          .signup__button
+            button.btn.btn--primary Đăng ký

@@ -1,0 +1,42 @@
+.signin {
+  &__element,
+  &__title,
+  &__remember,
+  &__form {
+    margin-block: 2rem;
+  }
+
+  &__title {
+    @include customFont(
+      $size: 1.6rem,
+      $fontFamily: $secondary-font,
+      $color: $primary,
+      $weight: 600
+    );
+  }
+
+  &__forget {
+    @include customFont(
+      $size: 1.2rem,
+      $fontFamily: $secondary-font,
+      $color: $dark-lighter,
+      $weight: 600
+    );
+    @include hoverTransition($primary);
+    font-style: italic;
+    margin-left: 1rem;
+  }
+
+  &__text {
+    @include customFont(
+      $size: 1.2rem,
+      $fontFamily: $secondary-font,
+      $color: $dark
+    );
+    padding-bottom: 2rem;
+  }
+
+  .grid {
+    gap: 2rem;
+  }
+}
